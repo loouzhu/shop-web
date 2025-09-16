@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>登录</title>
+    <link rel="icon" href="../other/vite.svg" />
+    <!-- 引入Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net.cn/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <!-- 引入公共css -->
+    <link rel="stylesheet" href="../CSS/public.css" />
+    <link rel="stylesheet" href="../other/vite.svg" />
+    <!-- 引入登录页面css -->
+    <link rel="stylesheet" href="../CSS/login.css" />
+  </head>
+  <body>
+    <!-- 头部 -->
+    <header>
+      <div class="left">
+        <span>
+          <span class="title">商店</span>
+        </span>
+      </div>
+      <div class="right" id="nav">
+        <span><a href="./index.html">前往主页</a></span>
+        <span><a href="./regist.html">前往注册</a></span>
+        <span><a href="#" data-id="userCenter">用户中心</a></span>
+        <span><a href="#" data-id="myOrder">我的订单</a></span>
+        <span><a href="#">帮助中心</a></span>
+        <span><a href="#">在线客服</a></span>
+      </div>
+    </header>
+    <!-- 登陆验证部分 -->
+    <div class="container">
+      <h2>登录</h2>
+      <div class="inputInfo">
+        <form id="loginForm">
+          <div id="tipText"></div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">邮箱地址</label>
+            <input
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="请输入邮箱"
+              required
+            />
+            <div id="emailHelp" class="form-text">
+              我们绝不会与他人共享您的电子邮件。
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="username" class="form-label">用户名</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              placeholder="请输入用户名"
+            />
+            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+          </div>
+          <div class="mb-3">
+            <label for="Password" class="form-label">密码</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="请输入密码"
+            />
+          </div>
+          <div class="mb-3 form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="exampleCheck1"
+              required
+            />
+            <label class="form-check-label" for="exampleCheck1"
+              >勾选代表同意<a href="">《用户协议》</a></label
+            >
+          </div>
+          <button type="submit" class="btn btn-primary" id="login-btn">
+            登录
+          </button>
+        </form>
+      </div>
+      <div class="code">
+        <img src="../other/模仿的一个二维码登录演示.png" alt="" />
+      </div>
+    </div>
+    <!-- 弹窗 -->
+    <div class="modal modal-box" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">商店提示您</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>您需要先登录再进行操作</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              关闭弹窗
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net.cn/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const nameRule = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+      const passwordRule = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+      const loginForm = document.getElementById("loginForm");
+
+      document.getElementById("nav").addEventListener("click", function (e) {
+        if (
+          e.target.dataset.id === "userCenter" ||
+          e.target.dataset.id === "myOrder"
+        ) {
+          e.preventDefault();
+          //弹窗
+          const modalBox = document.querySelector(".modal-box");
+          const modal = new bootstrap.Modal(modalBox);
+          modal.show();
+        }
+      });
+
+      loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const email = document.getElementById("exampleInputEmail1").value;
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const tipText = document.getElementById("tipText");
+
+        tipText.innerHTML = "";
+        if (!nameRule.test(username)) {
+          tipText.innerHTML = `
+      <div class="alert alert-danger" role="alert">
+        用户名最少8位，由英文和数字组成
+      </div>
+      `;
+          return;
+        }
+        if (!passwordRule.test(password)) {
+          tipText.innerHTML = `
+      <div class="alert alert-danger" role="alert">
+        密码最少6位
+      </div>
+      `;
+          return;
+        }
+        /* axios({
+        url: 'http://hmajax.itheima.net/api/login',
+        method: 'POST',
+        data: {
+          username,
+          passowrd
+        }
+      }).then(res => {
+        tipText.innerHTML = `
+        <div class="alert alert-success" role="alert">
+        登陆成功
+        </div>
+        `
+      }) */
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+body{
+  background-color: #b8b8b8;
+  background-image: url(https://ts1.tc.mm.bing.net/th/id/R-C.63d5b5b56c13a332e8e3166d5ad25eb5?rik=X3APh75B3fN0Kg&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1307%2f10%2fc2%2f23151595_1373424485109.jpg&ehk=lr%2fmn25zYXJ1EVHvD%2ft1B4lyNY9rm8u6ws37L%2bMH5NQ%3d&risl=&pid=ImgRaw&r=0);
+}
+
+header{
+  font-size: 0.93em;
+  height: 5rem;
+  line-height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(37, 37, 37);
+  padding: 0 1.25rem;
+  color: #dcdcdc;
+}
+
+header .title{
+  font-size: 1.68rem;
+  margin: 0 0.625rem;
+}
+
+header .right{
+  margin-right: 2.5rem;
+}
+
+header .right a{
+  padding: 0 0.625em;
+  outline: none;
+  color: #dcdcdc;
+  text-decoration-line:none;
+  background-color: transparent;
+  border-right: 1px solid #c4c2c2;
+}
+
+header .right a:last-child{
+  border-right: none;
+}
+
+header a:hover{
+  color: #27BA9B;
+}
