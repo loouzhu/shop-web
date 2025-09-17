@@ -213,7 +213,7 @@ header a:hover{
     width: 10%;
   }
   .carousel-indicators{
-    margin-bottom: 1.8rem;
+    margin-bottom: 0rem;
   }
   .banner .right{
     display: none;
