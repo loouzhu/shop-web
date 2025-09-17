@@ -20,18 +20,16 @@
   <body>
     <!-- 顶部导航栏 -->
     <header>
-      <div class="left">
-        <span>
-          <span class="title">商店</span>
-        </span>
-      </div>
+      <div class="left">商店</div>
       <div class="right">
-        <span><a href="./login.html">请先登录</a></span>
-        <span><a href="#">退出登录</a></span>
-        <span><a href="#" data-id="userCenter">用户中心</a></span>
-        <span><a href="#" data-id="myOrder">我的订单</a></span>
-        <span><a href="#">帮助中心</a></span>
-        <span><a href="#">在线客服</a></span>
+        <ul>
+          <li><a href="./login.html">请先登录</a></li>
+          <li><a href="#">退出登录</a></li>
+          <li><a href="#" data-id="userCenter">用户中心</a></li>
+          <li><a href="#" data-id="myOrder">我的订单</a></li>
+          <li><a href="#">帮助中心</a></li>
+          <li><a href="#">在线客服</a></li>
+        </ul>
       </div>
     </header>
     <!-- banner -->
@@ -115,7 +113,17 @@
             </button>
           </div>
         </div>
-        <div class="right">2</div>
+        <div class="right">
+          <div class="title">今日热搜产品</div>
+          <ul>
+            <!-- <li>
+              <a href="#">1</a>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">4</a>
+            </li> -->
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -123,7 +131,7 @@
     <script src="https://cdn.jsdelivr.net.cn/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       // 渲染banner左侧商品区域
-      const goodsList = [
+      const goodsListLeft = [
         "水果",
         "肉类",
         "电器",
@@ -134,12 +142,33 @@
         "水产",
       ];
       let str = "";
-      goodsList.map((item) => {
+      goodsListLeft.map((item) => {
         str += `
           <li><a href="#"><span>${item}</span><span class="iconfont icon-a-arrow-right-bold"><span></a></li>
         `;
       });
       document.getElementById("left").innerHTML = str;
+      // 渲染banner右侧的产品标签
+      const goodsListRight = [
+        ["1", "2", "3", "4"],
+        ["1", "2", "3", "4"],
+        ["1", "2", "3", "4"],
+        ["1", "2", "3", "4"],
+        ["1", "2", "3", "4"],
+        ["1", "2", "3", "4"],
+        ["1", "2", "3", "4"],
+      ];
+      const ulRight = document.querySelector(".container .right ul");
+      goodsListRight.map((linkGroup, index) => {
+        const li = document.createElement("li");
+        linkGroup.forEach((linkText, aIndex) => {
+          const a = document.createElement("a");
+          a.href = "#";
+          a.textContent = linkText;
+          li.appendChild(a);
+        });
+        ulRight.append(li);
+      });
     </script>
   </body>
 </html>

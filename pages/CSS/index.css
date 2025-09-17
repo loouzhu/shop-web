@@ -5,21 +5,28 @@ body{
 header{
   font-size: 0.93em;
   height: 5rem;
-  line-height: 5rem;
+  line-height: 1.5rem;
   display: flex;
   justify-content: space-between;
   background-color: rgb(37, 37, 37);
-  padding: 0 1.25rem;
+  padding: 0.5rem;
   color: #dcdcdc;
 }
 
-header .title{
+header .left{
   font-size: 1.68rem;
   margin: 0 0.625rem;
+  text-align: center;
 }
 
 header .right{
-  margin-right: 2.5rem;
+  text-align: center;
+  margin:0 2.5rem;
+  display: flex;
+}
+
+header ul{
+  list-style: none;
 }
 
 header .right a{
@@ -48,7 +55,7 @@ header a:hover{
   justify-content: space-between;
   padding: 0;
   height: 100%;
-  background-color: gray;
+  /* background-color: gray; */
 }
 
 .container .banner{
@@ -58,12 +65,12 @@ header a:hover{
   margin-bottom: 2rem;
 }
 
-.container .left{
+.banner .left{
   /* background-color: rgb(232, 215, 27); */
   width: 13vw;
 }
 
-.left ul{
+.banner .left ul{
   display: flexbox;
   list-style: none;
   text-decoration: none;
@@ -73,13 +80,13 @@ header a:hover{
   padding: 0;
 }
 
-.left ul li{
+.banner .left ul li{
   width: 100%;
   height: calc(100% / 8);
 }
 
-.left ul a{
-  padding: 1vw;
+.banner .left ul a{
+  padding: 0.895em;
   display: flex;
   height: 100%;
   width: 100%;
@@ -90,9 +97,9 @@ header a:hover{
   justify-content: space-between;
 }
 
-.left a:hover{
+.banner .left a:hover{
   background-color: rgb(180, 150, 255);
-  color: #efefef;
+  color: #ffffff;
   /* background: url(../other/right-hover.png) no-repeat right center; */
 }
 
@@ -108,5 +115,132 @@ header a:hover{
 
 .container .right{
   background-color: rgb(230, 168, 168);
-  width: 16vw;
+  width: 14.32rem;
+}
+
+.container .right .title{
+  height: 2.796875rem;
+  padding: 0.5em;
+}
+
+.container .right ul{
+  width: 100%;
+  list-style-position: inside;
+  padding-left: 0;
+  list-style: none;
+}
+
+.container .right li{
+  display: flex;
+  width: 100%;
+  height: 2.796875rem;
+  line-height: 2.796875rem;
+}
+
+.container .right a{
+  display: block;
+  text-align: center;
+  width: calc(100%/4);
+  text-decoration: none;
+  color: black;
+}
+
+.container .right a:hover{
+  color: #00ffc8;
+  background-color: #c4c2c2;
+}
+
+@media (max-width: 768px) {
+  /* 手机端专用样式 */
+  body{
+    font-size: 0.8rem;
+  }
+  header .left{
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 1.8rem;
+    margin: 0 0.3rem;
+    width: 30%;
+  }
+  header .right{
+    flex: 1;
+    flex-wrap: wrap;
+    margin: 0 0.3rem;;
+  }
+  header ul{
+    display: contents;
+    margin-bottom: 0;
+  }
+  header ul li{
+    height: 50%;
+    width: calc(100%/3);
+  }
+  header a{
+    text-decoration-line:none;
+    outline: none;
+  }
+  .container{
+    width: 90%;
+  }
+  .container .banner{
+    flex-direction: column;
+    width: 100%;
+  }
+  .banner .left{
+    width: 100%;
+    order: 2;
+    margin: 1.5rem 0;
+  }
+  .banner .left ul li{
+    padding: 0.2rem;
+  }
+  .banner .left a{
+    border-radius: 0.8rem;
+  }
+  .banner .middle img{
+    order: 1;
+    height: 10rem;
+    border-radius: 0.5rem;
+  }
+  .carousel-item{
+    overflow: hidden;
+    border-radius: 0.5rem;  
+  }
+  .carousel-inner{
+    border-radius: 0.5rem;
+  }
+  .carousel-control-next, .carousel-control-prev {
+    width: 10%;
+  }
+  .carousel-indicators{
+    margin-bottom: 1.8rem;
+  }
+  .banner .right{
+    display: none;
+  }
+}
+
+/* 中等屏幕样式覆盖 */
+@media (min-width: 768px) {
+  header {
+    height: 4rem;
+    padding: 0 1rem;
+  }
+  .container{
+    width: 90%;
+  }
+}
+
+@media (min-width: 1024px){
+  header {
+    padding: 0 1.25rem;
+    line-height: 4rem;
+  }
+  header .left{
+    width: 20%;
+  }
+  header ul{
+    flex: 1;
+    display: flex;
+  }
 }
