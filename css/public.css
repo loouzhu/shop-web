@@ -9,8 +9,101 @@ html{
   font-size: 100%;
 }
 
+/* 头部和脚部都写在这里 */
+
+header {
+  font-size: 0.93em;
+  height: 5rem;
+  line-height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(37, 37, 37);
+  padding: 0 1.25rem;
+  color: #dcdcdc;
+}
+
+header .left{
+  font-size: 1.8rem;
+  text-align: center;
+  width: 20%;
+}
+
+header ul{
+  flex: 1;
+  display: flex;
+  list-style: none;
+}
+
+header .right{
+  text-align: center;
+  margin:0 2.5rem;
+  margin-bottom: 0;
+  display: flex;
+}
+
+header .right a{
+  padding: 0 1.2vw;
+  outline: none;
+  color: #dcdcdc;
+  text-decoration-line:none;
+  background-color: transparent;
+  border-right: 1px solid #ffffff;
+}
+
+header .right a:last-child{
+  border-right: none;
+}
+
+header a:hover{
+  color: #27BA9B;
+}
+
 input::placeholder {
   color: #999;
   font-size: 0.85rem;
   opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+  /* 手机端公共专用样式 */
+  body{
+    font-size: 0.93rem;
+  }
+  /* 头部导航栏 */
+  header{
+    padding: 0;
+  }
+  header .left{
+    height: 5rem;
+    line-height: 5rem;
+    font-size: 1.8rem;
+    width: 30%;
+    text-align: center;
+  }
+  header .right{
+    flex: 1;
+    flex-wrap: wrap;
+    margin: 0 0.3rem;;
+  }
+  header ul{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 0;
+  }
+  header ul li{
+    width: calc(100%/3);
+    height: 2.5rem;
+    line-height: 2.5rem;
+  }
+  header .right a{
+    padding: 0;
+    text-decoration-line:none;
+    outline: none;
+  }
+  body .container{
+    width: 90%;
+  }
 }
