@@ -1,174 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>首页</title>
-    <!-- 引入Bootstrap -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net.cn/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    />
-    <!-- 引入公共css -->
-    <link rel="stylesheet" href="./css/public.css" />
-    <!-- 引入首页页面css -->
-    <link rel="stylesheet" href="./css/index.css" />
-    <!-- 引入Iconfont -->
-    <link rel="stylesheet" href="./other/font_yrlxupaih/iconfont.css" />
-    <link rel="stylesheet" href="./other/font_yrlxupaih/demo.css" />
-  </head>
-  <body>
-    <!-- 顶部导航栏 -->
-    <header>
-      <div class="left">商店</div>
-      <div class="right">
-        <ul>
-          <li><a href="./login.html">请先登录</a></li>
-          <li><a href="#">退出登录</a></li>
-          <li><a href="#" data-id="userCenter">用户中心</a></li>
-          <li><a href="#" data-id="myOrder">我的订单</a></li>
-          <li><a href="#">帮助中心</a></li>
-          <li><a href="#">在线客服</a></li>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>首页</title>
+  <!-- 引入Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net.cn/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <!-- 引入公共css -->
+  <link rel="stylesheet" href="./css/public.css" />
+  <!-- 引入首页页面css -->
+  <link rel="stylesheet" href="./css/index.css" />
+  <!-- 引入Iconfont -->
+  <link rel="stylesheet" href="./other/font_yrlxupaih/iconfont.css" />
+  <link rel="stylesheet" href="./other/font_yrlxupaih/demo.css" />
+</head>
+
+<body>
+  <!-- 顶部导航栏 -->
+  <header>
+    <div class="left">商店</div>
+    <div class="right">
+      <ul>
+        <li><a href="./login.html">请先登录</a></li>
+        <li><a href="#">退出登录</a></li>
+        <li><a href="#" data-id="userCenter">用户中心</a></li>
+        <li><a href="#" data-id="myOrder">我的订单</a></li>
+        <li><a href="#">帮助中心</a></li>
+        <li><a href="#">在线客服</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 商品展示部分 -->
+  <div class="container">
+    <!-- banner -->
+    <div class="banner">
+      <div class="left">
+        <ul id="left">
+          <!-- <li><a href="#">食品</a></li> -->
         </ul>
       </div>
-    </header>
-    <!-- banner -->
-    <div class="container">
-      <div class="banner">
-        <div class="left">
-          <ul id="left">
-            <!-- <li><a href="#">食品</a></li> -->
-          </ul>
-        </div>
-        <div class="middle">
-          <div id="carouselExampleIndicators" class="carousel slide">
-            <div class="carousel-indicators">
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="0"
-                class="active"
-                aria-current="true"
-                aria-label="Slide 1"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="1"
-                aria-label="Slide 2"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="2"
-                aria-label="Slide 3"
-              ></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img
-                  src="./other/20250422201959174532439979381.jpg"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="./other/20250505143614174642697417960.jpg"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="./other/20250506082830174649131053424.jpg"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-            </div>
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+      <div class="middle">
+        <div id="carouselExampleIndicators" class="carousel slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
           </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./other/万相营造_2025-09-20_12-55-56_261298150.png" class="d-block w-100" alt="..." />
+            </div>
+            <div class="carousel-item">
+              <img src="./other/万相营造_2025-09-20_01-03-00_261300195.png" class="d-block w-100" alt="..." />
+            </div>
+            <div class="carousel-item">
+              <img src="./other/万相营造_2025-09-20_01-01-40_261299783.png" class="d-block w-100" alt="..." />
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <div class="right">
-          <div class="title">今日热搜产品</div>
-          <ul>
-            <!-- <li>
+      </div>
+      <div class="right">
+        <div class="title">今日热搜产品</div>
+        <ul>
+          <!-- <li>
               <a href="#">1</a>
               <a href="#">2</a>
               <a href="#">3</a>
               <a href="#">4</a>
             </li> -->
-          </ul>
-        </div>
+        </ul>
       </div>
     </div>
+    <!-- 商品展示区域 -->
+    <div class="showAllGoods">
+      <div class="loading">
+        <h6>正在加载商品，请等待...</h6>
+      </div>
+    </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net.cn/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      // 渲染banner左侧商品区域
-      const goodsListLeft = [
-        "水果",
-        "肉类",
-        "电器",
-        "家具",
-        "牛奶",
-        "手机",
-        "服装",
-        "水产",
-      ];
-      let str = "";
-      goodsListLeft.map((item) => {
-        str += `
+  <!-- 底部 -->
+  <footer>
+    <div class="container">
+      <div class="left">
+        <h5>客户服务</h5>
+        <div class="service">
+          <img src="./other/客户服务二维码.png" alt="客户服务">
+        </div>
+      </div>
+      <div class="middle">
+        <h5>关注我们</h5>
+        <div class="attention">
+          <img src="./other/关注我们二维码.png" alt="关注我们">
+        </div>
+      </div>
+      <div class="right">
+        <h5>联系热线</h5>
+        <h3>123-456-789</h3>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net.cn/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // 渲染banner左侧商品区域
+    const goodsListLeft = [
+      "水果",
+      "肉类",
+      "电器",
+      "家具",
+      "牛奶",
+      "手机",
+      "服装",
+      "水产",
+    ];
+    let str = "";
+    goodsListLeft.map((item) => {
+      str += `
           <li><a href="#"><span>${item}</span><span class="iconfont icon-a-arrow-right-bold"><span></a></li>
         `;
+    });
+    document.getElementById("left").innerHTML = str;
+    // 渲染banner右侧的产品标签
+    const goodsListRight = [
+      ["电子产品", "服装鞋帽", "家居用品", "美妆个护"],
+      ["食品饮料", "图书文具", "运动户外", "母婴玩具"],
+      ["数码配件", "家用电器", "珠宝首饰", "汽车用品"],
+      ["健康保健", "宠物用品", "办公设备", "礼品鲜花"],
+      ["体育用品", "旅行箱包", "厨房用品", "手表眼镜"],
+      ["家具家装", "手机通讯", "电脑配件", "音像制品"],
+      ["游戏玩具", "乐器音响", "摄影器材", "收藏品"]
+    ];
+    const ulRight = document.querySelector(".container .right ul");
+    goodsListRight.map((linkGroup, index) => {
+      const li = document.createElement("li");
+      linkGroup.forEach((linkText, aIndex) => {
+        const a = document.createElement("a");
+        a.href = "#";
+        a.textContent = linkText;
+        li.appendChild(a);
       });
-      document.getElementById("left").innerHTML = str;
-      // 渲染banner右侧的产品标签
-      const goodsListRight = [
-        ["1", "2", "3", "4"],
-        ["1", "2", "3", "4"],
-        ["1", "2", "3", "4"],
-        ["1", "2", "3", "4"],
-        ["1", "2", "3", "4"],
-        ["1", "2", "3", "4"],
-        ["1", "2", "3", "4"],
-      ];
-      const ulRight = document.querySelector(".container .right ul");
-      goodsListRight.map((linkGroup, index) => {
-        const li = document.createElement("li");
-        linkGroup.forEach((linkText, aIndex) => {
-          const a = document.createElement("a");
-          a.href = "#";
-          a.textContent = linkText;
-          li.appendChild(a);
-        });
-        ulRight.append(li);
+      ulRight.append(li);
+    });
+    // 从API获取商品
+    let goodsData = []
+    fetch('https://fakestoreapi.com/products')
+      .then(response => response.json())
+      .then(data => {
+        goodsData = data;
+        renderGoods(goodsData)
       });
-    </script>
-  </body>
+    // 渲染商品列表
+    function renderGoods(goodsData) {
+      if (goodsData.length === 0) {
+        alert('没有找到相应商品')
+        return;
+      }
+      document.querySelector('.showAllGoods').innerHTML =
+        `
+        <ul class="allGoods">
+        ${goodsData.map(product =>
+          `
+          <li>
+            <a href="#" class='goodCard'>
+              <img src="${product.image}" alt="${product.title}" class="goodImage">
+              <p class="goodTitle">${product.title}</p>
+              <p class="goodDiscription">${product.description}</p>
+              <p class="goodPrice">￥${product.price}</p>
+              <div class="goodRating">
+                <span class='goodStar'>${product.rating.rate} 分<span>
+                <span class='goodCount'>${product.rating.count}条评价<span>
+              </div>
+              <button class="addToCart">加入购物车</button>
+            </a>
+          </li>
+          `
+        ).join('')}
+        </ul >
+      `
+    }
+  </script>
+</body>
+
 </html>
