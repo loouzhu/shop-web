@@ -202,17 +202,44 @@ body{
   width: 100%;
   padding: 0.75rem;
   background: #4869ff;
-  color: white;
   border: none;
   border-radius: 6px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s ease;
+  text-align: center;
+}
+
+.goodCard .addToCart button{
+  border: 0;
+  background: transparent;
+  color: white;
 }
 
 .goodCard .addToCart:hover{
   background-color: #002fff;
+}
+
+.goodCard .addToCart .count{
+  background-color: #e8e8e8;
+  border-radius: 2rem;
+  margin: 0 auto;
+  width: 70%;
+  font-size: 1.2rem;
+  display: flex;
+  color: #4869ff;
+  justify-content: space-between;
+}
+
+.addToCart .count .left,
+.addToCart .count .right{
+  height: 100%;
+  width: 1.8rem;
+  border-radius: 50%;
+  background-color: white;
+  text-align: center;
+  
 }
 
 @media (max-width: 768px) {

@@ -23,11 +23,9 @@
     <div class="right">
       <ul>
         <li><a href="./login.html">请先登录</a></li>
-        <li><a href="#">退出登录</a></li>
-        <li><a href="#" data-id="userCenter">用户中心</a></li>
-        <li><a href="#" data-id="myOrder">我的订单</a></li>
-        <li><a href="#">帮助中心</a></li>
-        <li><a href="#">在线客服</a></li>
+        <li><a href="./regist.html">请先注册</a></li>
+        <li><a href="./shopCar.html" data-id="shopCar">购物车</a></li>
+        <li><a href="./userCenter.html" data-id="userCenter">用户中心</a></li>
       </ul>
     </div>
   </header>
@@ -93,7 +91,6 @@
       </div>
     </div>
   </div>
-
   <!-- 底部 -->
   <footer>
     <div class="container">
@@ -116,12 +113,11 @@
     </div>
   </footer>
 
-  <script data-src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script data-src="https://cdn.jsdelivr.net.cn/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net.cn/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       lazyLoading()
-
       // 渲染banner左侧商品区域
       const goodsListLeft = [
         "水果",
@@ -180,10 +176,10 @@
       document.querySelector('.showAllGoods').innerHTML =
         `
         <ul class="allGoods">
-        ${goodsData.map(product =>
+        ${goodsData.map((product, index) =>
           `
           <li>
-            <a href="#" class='goodCard'>
+            <div href="" class='goodCard' data-index = "${index}">
               <img data-src="${product.image}" alt="${product.title}" class="goodImage">
               <p class="goodTitle">${product.title}</p>
               <p class="goodDiscription">${product.description}</p>
@@ -192,15 +188,64 @@
                 <span class='goodStar'>${product.rating.rate} 分<span>
                 <span class='goodCount'>${product.rating.count}条评价<span>
               </div>
-              <button class="addToCart">加入购物车</button>
-            </a>
+              <div class="addToCart">
+                <button id = "addToCart">加入购物车</button>
+              </div>
+            </div>
           </li>
           `
         ).join('')}
         </ul >
       `
+      // 控制商品购买数量
+      // 给每个商品计数器初始值都设置为0
+      const counters = new Array(goodsData.length).fill(0)
+      const goodCards = document.querySelectorAll('.goodCard')
+      goodCards.forEach(goodCard => {
+        goodCard.addEventListener('click', e => {
+          // closest:获取最近的祖先元素
+          const addToCartBtn = e.target.closest('.addToCart')
+          const reduceBtn = e.target.closest('.left')
+          const addBtn = e.target.closest('.right')
+          if (addToCartBtn) {
+            const card = addToCartBtn.closest('.goodCard')
+            const index = parseInt(card.getAttribute('data-index'))
+            console.log(index)
+            counters[index] = 1
+            addToCartBtn.closest('.addToCart').innerHTML = `
+            <div class="count">
+              <div class="left">-</div>
+              <div class="middle">${counters[index]}</div>
+              <div class="right">+</div>
+            </div>
+            `
+          }
+          if (reduceBtn) {
+            const card = reduceBtn.closest('.goodCard')
+            const index = parseInt(card.getAttribute('data-index'))
+
+            counters[index]--
+            if (counters[index] <= 0) {
+              counters[index] = 0
+              reduceBtn.closest('.addToCart').innerHTML = '<button class="addToCartBtn">加入购物车</button>'
+            } else {
+              reduceBtn.nextElementSibling.textContent = counters[index]
+            }
+          }
+
+          if (addBtn) {
+            const card = addBtn.closest('.goodCard')
+            const index = parseInt(card.getAttribute('data-index'))
+            counters[index]++
+            addBtn.previousElementSibling.textContent = counters[index]
+          }
+        })
+      })
+
+
       observeNewImgs()
     }
+
     // 实现图片懒加载
     // 创建全局观察器
     let imgObserver = null

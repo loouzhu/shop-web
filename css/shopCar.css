@@ -1,0 +1,13 @@
+body{
+  background-color: #efefef;
+}
+
+.container{
+  width: 90%;
+  margin-top: 2rem;
+  margin: 2rem auto;
+  justify-content: center;
+  justify-content: space-between;
+  padding: 0;
+  height: 100%;
+}
