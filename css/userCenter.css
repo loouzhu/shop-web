@@ -76,7 +76,11 @@ body{
 }
 
 .content{
-  display: flex;
+  display: grid;
+}
+
+.content .info-wrap{
+  grid-column: 1;
 }
 
 .content .avatar-box {
@@ -88,6 +92,7 @@ body{
   padding-top: 55px;
   width: 200px;
   margin-left: 5rem;
+  grid-column: 2;
 }
 
 .content .avatar-box .avatar-title {
@@ -127,8 +132,6 @@ body{
 .content .avatar-box #upload {
   display: none;
 }
-
-
 
 .content .user-form label:not(.male-label) {
   display: block;
@@ -177,7 +180,7 @@ body{
 .form-item input:not([type=radio]),
 textarea {
   display: block;
-  width: 330px;
+  width: 20rem;
   outline: none;
   font-size: 14px;
   border: 1px solid #d9d9d9;
@@ -257,5 +260,31 @@ footer .container{
 }
 
 @media (max-width: 768px) {
-  
+  .nav{
+    display: none;
+  }
+  .content{
+    display: grid;
+    flex-direction: column;
+  }
+
+  .content .avatar-box,
+  .content .info-wrap{
+    grid-column: auto; /* 重置为自动位置 */
+  }
+
+  .content .avatar-box{
+    order:1;
+    margin-left: 0;
+    padding-top: 1rem;
+  }
+  .content .info-wrap{
+    order:2;
+    width: 90%;
+  }
+  .info-wrap .nickname,
+  .info-wrap .email,
+  .info-wrap textarea{
+    width: 90% !important;
+  }
 }

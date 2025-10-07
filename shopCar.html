@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net.cn/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <!-- 引入公共css -->
   <link rel="stylesheet" href="./css/public.css" />
+  <link rel="stylesheet" href="./css/shopCar.css">
 </head>
 
 <body>
@@ -19,13 +20,68 @@
       <ul>
         <li><a href="./login.html">请先登录</a></li>
         <li><a href="./index.html">前往主页</a></li>
-        <li><a href="./shopCar.html" data-id="shopCar">购物车</a></li>
         <li><a href="./userCenter.html" data-id="userCenter">用户中心</a></li>
       </ul>
     </div>
   </header>
   <div class="container">
-    <h2 class="title">我的购物车</h2>
+    <!-- 顶部 -->
+    <div class="top">
+      <h2 class="title">我的购物车</h2>
+      <div class="search">
+        <input type="text">
+        <button>搜索</button>
+      </div>
+    </div>
+    <!--显示菜单-->
+    <div class="tips-wrap">
+      <ul>
+        <li style="width: 40%;">商品</li>
+        <li>单价</li>
+        <li>数量</li>
+        <li>小计</li>
+        <li>操作</li>
+      </ul>
+    </div>
+    <!-- 购物车主体部分 -->
+    <ul class="goodsList">
+      <!-- <li class="good-item">
+        <input type="checkbox" name="" id="">
+        <div class="info">
+          <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png" alt="">
+          <span class="name">Mens Casual Premium Slim Fit T-Shirts</span>
+        </div>
+        <div class="rest">
+          <span class="price">123元</span>
+          控制商品数量
+          <div class="counts">
+            <button class="reduce">-</button>
+            <span class="counts">1</span>
+            <button class="add">+</button>
+          </div>
+          <span class="total">123元</span>
+          <button class="delete">删除商品</button>
+      </li>
+      <li class="good-item">
+        <input type="checkbox" name="" id="">
+        <div class="info">
+          <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png" alt="">
+          <span class="name">Mens Casual Premium Slim Fit T-Shirts</span>
+        </div>
+        <div class="rest">
+          <span class="price">123元</span>
+          控制商品数量
+          <div class="counts">
+            <button class="reduce">-</button>
+            <span class="counts">1</span>
+            <button class="add">+</button>
+          </div>
+          <span class="total">123元</span>
+          <button class="delete">删除商品</button>
+      </li>
+        </div> -->
+
+    </ul>
   </div>
   <!-- 底部 -->
   <footer>

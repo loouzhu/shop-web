@@ -52,7 +52,7 @@ body{
 }
 
 .banner .left a:hover{
-  background-color: rgb(22, 65, 235);
+  background-color: rgb(23, 70, 255);
   color: #ffffff;
   /* background: url(../other/right-hover.png) no-repeat right center; */
 }
@@ -201,7 +201,7 @@ body{
 .goodCard .addToCart {
   width: 100%;
   padding: 0.75rem;
-  background: #4869ff;
+  background: #284fff;
   border: none;
   border-radius: 6px;
   font-size: 1rem;

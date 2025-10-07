@@ -6,8 +6,97 @@ body{
   width: 90%;
   margin-top: 2rem;
   margin: 2rem auto;
-  justify-content: center;
-  justify-content: space-between;
   padding: 0;
   height: 100%;
+}
+
+ul{
+  list-style: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+}
+
+input[type='checkbox']{
+  transform: scale(1.5);
+}
+
+/* 顶部 */
+.container .top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* 显示菜单 */
+.tips-wrap ul{
+  padding: 0 2em;
+  height: 3rem;
+  background-color: rgb(205, 205, 205);
+  display: flex;
+}
+
+/* 购物车主体部分 */
+.goodsList{
+  height: 40rem;
+  margin-bottom: 5rem;
+}
+
+.good-item{
+  display: flex;
+  justify-content: space-between;
+  height: 7rem;
+  background-color: rgb(209, 209, 209);
+  width: 100%;
+  padding: 1rem 2rem;
+  justify-content: left;
+  margin: 2rem 0;
+}
+
+.good-item .info{
+  display: flex;
+  padding: 0 1rem;
+  padding-right: 5.5rem;
+}
+
+.info img{
+  margin-right: 1em;
+  width: 4rem;
+  height: 5rem;;
+}
+
+.good-item .rest{
+  flex: 1;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 9rem;
+}
+
+.rest .right{
+  margin-right: 1rem;
+}
+
+.counts{
+  display: flex;
+  border: 1px solid #333;
+  background-color: rgb(212, 212, 212);
+}
+
+.counts span{
+  display: block;
+  width: 2rem;
+}
+
+.counts button{
+  display: block;
+  width: 1.5rem;
+  height: 100%;
+  border: 0;
+}
+
+.cart-summary{
+  text-align: right;
 }

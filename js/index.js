@@ -1,4 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
+  let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+  let goodsData = []
+
+  document.addEventListener('DOMContentLoaded', function () {
       lazyLoading()
       // 渲染banner左侧商品区域
       const goodsListLeft = [
@@ -40,17 +43,16 @@ document.addEventListener('DOMContentLoaded', function () {
         ulRight.append(li);
       });
       // 从API获取商品
-      let goodsData = []
+      
       fetch('https://fakestoreapi.com/products')
         .then(response => response.json())
         .then(data => {
           goodsData = data;
           renderGoods(goodsData)
         });
-    })
+  })
 
-    // 渲染商品列表
-
+  // 渲染商品列表
   function renderGoods(goodsData) {
     if (goodsData.length === 0) {
     alert('没有找到相应商品')
@@ -83,48 +85,57 @@ document.addEventListener('DOMContentLoaded', function () {
     const target = e.target;
     const cartBtn = target.closest('.addToCart');
     
-    if (cartBtn && !cartBtn.querySelector('.count')) {
+    if (cartBtn) {
       // 点击"加入购物车"按钮
       const currentIndex = parseInt(cartBtn.getAttribute('data-index'));
-      cartBtn.innerHTML = `
-        <div class="count">
-          <div class="left" data-index="${currentIndex}">-</div>
-          <div class="middle">1</div>
-          <div class="right" data-index="${currentIndex}">+</div>
-        </div>
-      `;
-    } else if (target.classList.contains('left')) {
-      // 点击减号按钮
-      const currentIndex = parseInt(target.getAttribute('data-index'));
-      const cartBtn = target.closest('.addToCart');
-      const middleDisplay = cartBtn.querySelector('.middle');
-      let currentCount = parseInt(middleDisplay.textContent);
-      
-      if (currentCount <= 1) {
-        cartBtn.innerHTML = '加入购物车';
-      } else {
-        currentCount--;
-        middleDisplay.textContent = currentCount;
-      }
-    } else if (target.classList.contains('right')) {
-      // 点击加号按钮
-      const currentIndex = parseInt(target.getAttribute('data-index'));
-      const cartBtn = target.closest('.addToCart');
-      const middleDisplay = cartBtn.querySelector('.middle');
-      let currentCount = parseInt(middleDisplay.textContent);
-      
-      currentCount++;
-      middleDisplay.textContent = currentCount;
+      addToCart(currentIndex);
     }
-    });
+  });
   
-    observeNewImgs();
-  }
+  // 添加到购物车函数
+  function addToCart(productIndex) {
+    const product = goodsData[productIndex];
+    
+    // 检查商品是否已在购物车中
+    const existingItem = cartItems.find(item => item.id === product.id);
+    
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cartItems.push({
+        ...product,
+        quantity: 1
+      });
+    }
 
-    // 实现图片懒加载
+    // 保存到本地存储
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+    // 更新UI反馈
+    showAddToCartFeedback(productIndex);
+  }
+  
+  // 显示添加成功的反馈
+  function showAddToCartFeedback(productIndex) {
+  const cartBtn = document.querySelector(`.addToCart[data-index="${productIndex}"]`);
+  const originalText = cartBtn.innerHTML;
+  
+  cartBtn.innerHTML = '✓ 已添加';
+  cartBtn.style.backgroundColor = '#28a745';
+  
+  setTimeout(() => {
+    cartBtn.innerHTML = originalText;
+    cartBtn.style.backgroundColor = '';
+  }, 1500);
+  }
+  
+  observeNewImgs();
+}
+
+  // 实现图片懒加载
     // 创建全局观察器
-    let imgObserver = null
-    function lazyLoading() {
+  let imgObserver = null
+  function lazyLoading() {
       imgObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -133,26 +144,26 @@ document.addEventListener('DOMContentLoaded', function () {
         })
       })
       observeInitialImages();
-    }
+  }
 
-    // 将data-src改回src
-    function changeName(entry) {
+  // 将data-src改回src
+  function changeName(entry) {
       const img = entry.target ? entry.target : entry
       img.src = img.getAttribute('data-src')
       imgObserver.unobserve(img)
-    }
+  }
 
-    // 观察初始加载的图片
-    function observeInitialImages() {
+  // 观察初始加载的图片
+  function observeInitialImages() {
       const initialImgs = document.querySelectorAll('img')
       initialImgs.forEach(initialImg => {
         imgObserver.observe(initialImg)
       })
-    }
-    // 观察JS动态加载的新图片
-    function observeNewImgs() {
+  }
+  // 观察JS动态加载的新图片
+  function observeNewImgs() {
       const newImgs = document.querySelectorAll('img[data-src]')
       newImgs.forEach(newImg => {
         imgObserver.observe(newImg)
       })
-    }
+  }

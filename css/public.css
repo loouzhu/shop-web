@@ -119,6 +119,7 @@ footer img{
     flex: 1;
     flex-wrap: wrap;
     margin: 0 0.3rem;;
+    line-height: 5rem;
   }
   header ul{
     display: flex;
@@ -129,8 +130,8 @@ footer img{
   }
   header ul li{
     width: calc(100%/3);
-    height: 2.5rem;
-    line-height: 2.5rem;
+    height: 5rem;
+    line-height: 5rem;
   }
   header .right a{
     padding: 0;
