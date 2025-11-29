@@ -38,7 +38,7 @@ const nameRule = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
           `;
         return;
       }
-      /* axios({
+      axios({
         url: "http://hmajax.itheima.net/api/register",
         // 指定请求方法
         method: "POST",
@@ -55,5 +55,5 @@ const nameRule = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
         .catch((error) => {
           // 失败处理错误信息
           alert(error.response.data.message);
-        }); */
+        });
     });

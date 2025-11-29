@@ -1,4 +1,4 @@
-const nameRule = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const nameRule = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
     const passwordRule = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
     const loginForm = document.getElementById("loginForm");
     const loginBtn = document.getElementById('login-btn')
@@ -43,6 +43,8 @@ const nameRule = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
       `;
         return;
       }
+      localStorage.setItem('username',username)
+      window.location.replace('./index.html')
     });
 
     // 切换二维码登录页面

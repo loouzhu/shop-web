@@ -8,7 +8,6 @@ axios({
   }
 }).then(res => {
   const userObj = res.data.data
-  //console.log(userObj)
   //Object.keys()可以拿到一个对象里面所有的属性名并放在数组里面返回
   Object.keys(userObj).map(key => {
     if (key === 'avatar') document.querySelector('.prew').src = userObj[key]
@@ -42,12 +41,19 @@ document.querySelector('.upload').addEventListener('change', (e) => {
 
 // 修改用户信息
 document.querySelector('.submit').addEventListener('click', () => {
-  // 收集表单信息
+  // 使用 FormData 收集表单信息
   const userForm = document.querySelector('.user-form')
-  const userData = serialize(userForm, { hash: true, empty: true })
+  const formData = new FormData(userForm)
+
+  // 将 FormData 转换为普通对象
+  const userData = {}
+  for (let [key, value] of formData.entries()) {
+    userData[key] = value
+  }
+
   userData.creator = creator
   userData.gender = parseInt(userData.gender)
-  //console.log(userData)
+
   axios({
     url: 'https://hmajax.itheima.net/api/settings',
     method: "PUT",

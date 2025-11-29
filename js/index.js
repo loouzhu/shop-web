@@ -1,6 +1,10 @@
   let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
   let goodsData = []
 
+  let username = localStorage.getItem('username')
+  document.querySelector('header .right li').innerHTML = username
+  console.log(username)
+
   document.addEventListener('DOMContentLoaded', function () {
       lazyLoading()
       // 渲染banner左侧商品区域
@@ -55,8 +59,8 @@
   // 渲染商品列表
   function renderGoods(goodsData) {
     if (goodsData.length === 0) {
-    alert('没有找到相应商品')
-    return;
+      alert('没有找到相应商品')
+      return;
     }
   document.querySelector('.showAllGoods').innerHTML = `
     <ul class="allGoods">
@@ -133,7 +137,7 @@
 }
 
   // 实现图片懒加载
-    // 创建全局观察器
+  // 创建全局观察器
   let imgObserver = null
   function lazyLoading() {
       imgObserver = new IntersectionObserver((entries) => {
