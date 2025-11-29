@@ -1,3 +1,5 @@
+let username = localStorage.getItem('username')
+document.querySelector('header .username').innerHTML = username
 // 获取用户数据(模拟的初始数据)
 const creator = 'abc'
 axios({
